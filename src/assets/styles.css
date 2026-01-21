@@ -68,5 +68,16 @@
     border-radius: 20px;
 }
 
+/* Clase active de navbar */
+
+.active {
+    background: rgb(170, 27, 27);
+    border-bottom: 4px solid yellow !important;
+}
+
+#form-producto label {
+    margin-top: 10px;
+}
+
 
 

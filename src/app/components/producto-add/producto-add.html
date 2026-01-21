@@ -1,0 +1,34 @@
+<h3>{{titulo}}</h3>
+<hr>
+<form #formProducto="ngForm" (ngSubmit)="onSubmit()" class="col-lg-6" id="form-producto">
+    <label>
+        Nombre
+        @if (!nombre.valid && nombre.touched) {
+        <span class="label label-danger">El nombre es obligatorio.</span>
+        }
+    </label>
+    <input type="text" #nombre="ngModel" name="nombre" [(ngModel)]="producto.nombre" class="form-control" required>
+
+    <label>
+        Descripción
+        @if (!descripcion.valid && descripcion.touched) {
+        <span class="label label-danger">La descripción es obligatoria.</span>
+        }
+    </label>
+    <textarea class="form-control" #descripcion="ngModel" name="descripcion"
+        [(ngModel)]="producto.description"></textarea>
+
+    <label>
+        Precio
+        @if (!precio.valid && precio.touched) {
+        <span class="label label-danger">El precio no es correcto.</span>
+        }
+    </label>
+    <input type="text" #precio="ngModel" name="precio" [(ngModel)]="producto.precio" class="form-control" required pattern="[0-9]+">
+
+    <label>Imagen</label>
+    <input type="file" class="form-control">
+
+    <br>
+    <input type="submit" value="{{titulo}}" [disabled]="!formProducto.form.valid" class="btn btn-success">
+</form>

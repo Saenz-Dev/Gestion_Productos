@@ -1,0 +1,19 @@
+<h2>
+    {{titulo}}
+</h2>
+<hr>
+@if (!productos) {
+<div>Cargando lista de productos...</div>
+}
+@if (productos) {
+<div>
+    <ul>
+        @for (producto of productos; track $index) {
+        <li>
+            <strong>{{producto.nombre}}</strong>
+            <p>{{producto.precio}}</p>
+        </li>
+        }
+    </ul>
+</div>
+}
